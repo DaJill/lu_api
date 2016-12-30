@@ -23,10 +23,9 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
-
-// $app->withEloquent();
-
+$app->withFacades();
+$app->withEloquent();
+$app->configure('database');
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
