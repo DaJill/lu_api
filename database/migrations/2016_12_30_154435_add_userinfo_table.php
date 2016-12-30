@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class AddUserinfoTable extends Migration
 {
+    protected $connection = 'Core';
+    
     /**
      * Run the migrations.
      *
@@ -12,7 +15,7 @@ class AddUserinfoTable extends Migration
      */
     public function up()
     {
-        Schema::table('UserInfo', function (Blueprint $table) {
+        Schema::create('UserInfo', function (Blueprint $table) {
             $table->bigIncrements('UserID')->comment('會員編號');
             $table->string('Nickname', 100)->default('')->comment('會員暱稱');
             $table->string('UserName', 20)->comment('會員帳號');
