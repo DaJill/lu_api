@@ -11,6 +11,18 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->version();
-});
+// $app->get('/', function () use ($app) {
+//     return $app->version();
+// });
+
+$app->group(
+	[
+		'prefix' => 'api/user',
+		'middleware' => 'cors'
+	], 
+	function () use ($app) {
+	    $app->get('/list', 'UserInfoController@index');
+	    $app->get('/{iUserID}', 'UserInfoController@getUser');
+	    $app->delete('/{iUserID}', 'UserInfoController@delUser');
+	    $app->post('/{iUserID}', 'UserInfoController@addUser');
+	});

@@ -1,24 +1,26 @@
 <?php
-
-namespace App;
+namespace App\DbModel;
 
 use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use DB;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract
+class UserInfo extends Model
 {
-    use Authenticatable, Authorizable;
-
+    protected $table = 'UserInfo';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'UserID', 
+        'Nickname',
+        'UserName',
+        'Password'
     ];
 
     /**
@@ -27,6 +29,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password',
+        // 'password',
     ];
 }
