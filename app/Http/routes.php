@@ -24,5 +24,5 @@ $app->group(
 	    $app->get('/list', 'UserInfoController@index');
 	    $app->get('/{iUserID}', 'UserInfoController@getUser');
 	    $app->delete('/{iUserID}', 'UserInfoController@delUser');
-	    $app->post('/{iUserID}', 'UserInfoController@addUser');
+	    $app->post('/add', 'UserInfoController@addUser');
 	});
