@@ -26,6 +26,7 @@ $app = new Laravel\Lumen\Application(
 $app->withFacades();
 $app->withEloquent();
 $app->configure('database');
+$app->configure('cors');
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -80,6 +81,8 @@ $app->singleton(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->register('Barryvdh\Cors\LumenServiceProvider');
+// $app->register(\Barryvdh\Cors\HandleCors::class);
 
 /*
 |--------------------------------------------------------------------------
