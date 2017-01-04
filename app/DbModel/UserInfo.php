@@ -11,6 +11,7 @@ use DB;
 class UserInfo extends Model
 {
     protected $table = 'UserInfo';
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *

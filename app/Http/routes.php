@@ -25,4 +25,5 @@ $app->group(
 	    $app->get('/{iUserID}', 'UserInfoController@getUser');
 	    $app->delete('/{iUserID}', 'UserInfoController@delUser');
 	    $app->post('/add', 'UserInfoController@addUser');
+	    $app->put('/{iUserID}', 'UserInfoController@updateUser');
 	});

@@ -55,4 +55,28 @@ class UserInfoController extends Controller
         $aReturn['UserID'] = $iLastID;
         return json_encode($aReturn);
     }
+
+    public function updateUser(Request $req, $_iUserID){
+        $aReturn = array(
+            'event' => false
+        );
+        $sUserName = $req->input('UserName');
+        $sPassword = $req->input('Password');
+        $sNickname = $req->input('Nickname');
+
+        $aUser = array($sUserName, $sPassword, $sNickname);
+        if(in_array('', $aUser)){
+            return json_encode($aReturn);
+        }
+
+        $iQuery = UserInfo::where('UserID', $_iUserID)->update(
+            [
+                'UserName' => $sUserName,
+                'Password' => $sPassword,
+                'Nickname' => $sNickname
+            ]
+        );
+        $aReturn['event'] = ($iQuery == 1) ? true : false;
+        return json_encode($aReturn);
+    }
 }
