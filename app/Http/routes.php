@@ -27,3 +27,13 @@ $app->group(
 	    $app->post('/add', 'UserInfoController@addUser');
 	    $app->put('/{iUserID}', 'UserInfoController@updateUser');
 	});
+
+$app->group(
+	[
+		'prefix' => 'api/event/list',
+		'middleware' => 'cors'
+	], 
+	function () use ($app) {
+	    $app->get('/{iStatus}', 'EventListController@getListByStatus');
+	    $app->get('/date?start={dStart}&end={dEnd}', 'EventListController@getListByDate');
+	});
